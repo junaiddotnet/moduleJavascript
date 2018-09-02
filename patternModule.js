@@ -21,3 +21,24 @@ return privateMethod() + this.publicMethod() + privateVar;
 }
 }
 })();
+
+
+var VehiclePrototype=  {
+    init:function(mymdel)
+    {
+        this.model = mymdel;
+    },
+    getModel:function()
+    {
+        return this.model;
+    }
+};
+
+function Vehicle (model)
+{
+    function f() { };
+    f.prototype = VehiclePrototype;
+    var f = new f();
+    f.init(model);
+    return f;
+}
